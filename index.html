@@ -4,10 +4,10 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>MKTR_ZINE | MEKDES NORMAND — V2</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Be+Vietnam+Pro:wght@400;700&family=Syne:wght@800&family=Permanent+Marker&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Be+Vietnam+Pro:wght@400;700&family=Syne:wght@800&family=Permanent+Marker&family=Fredoka:wght@400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-:root{--pink:#F397AF;--green:#739977;--black:#000000;--white:#FFFFFF;}
+:root{--pink:#F397AF;--green:#739977;--black:#2D4A32;--white:#FFFFFF;}
 body{font-family:'Be Vietnam Pro',sans-serif;background:var(--white);color:var(--black);overflow-x:hidden;}
 
 /* ★ DECORATIVE STARS — CSS-only sparkles */
@@ -112,12 +112,47 @@ header .hire-btn:hover{transform:rotate(-1deg) scale(1.05);}
 }
 .hero-text{flex:1;z-index:2;position:relative;}
 .hero-text h1{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(72px,12vw,140px);line-height:0.85;
-  color:var(--black);letter-spacing:-0.03em;text-transform:uppercase;
+  font-family:'Fredoka',sans-serif;font-weight:700;
+  font-size:clamp(72px,12vw,140px);line-height:0.9;
+  color:var(--pink);letter-spacing:-0.01em;text-transform:none;
 }
 .hero-text h1 span.outline{
-  -webkit-text-stroke:3px var(--black);color:transparent;
+  color:var(--pink);-webkit-text-stroke:none;
+  font-family:'Fredoka',sans-serif;font-weight:700;
+}
+
+/* ★ SCRAPBOOK DECORATIONS */
+.hero-deco-tape{
+  position:absolute;width:120px;height:40px;
+  background:rgba(243,151,175,0.35);border:1px solid rgba(243,151,175,0.5);
+  z-index:10;pointer-events:none;
+}
+.hero-deco-circle{
+  position:absolute;width:80px;height:80px;
+  border:3px dashed var(--green);border-radius:50%;
+  z-index:1;pointer-events:none;opacity:0.6;
+}
+.hero-deco-squiggle{
+  position:absolute;pointer-events:none;z-index:1;
+  font-size:32px;color:var(--pink);opacity:0.7;
+  font-family:'Permanent Marker',cursive;
+}
+.hero-deco-arrow{
+  position:absolute;pointer-events:none;z-index:1;
+  font-size:42px;color:var(--green);
+  font-family:'Permanent Marker',cursive;
+  transform:rotate(-15deg);
+}
+.hero-deco-heart{
+  position:absolute;pointer-events:none;z-index:1;
+  font-size:28px;color:var(--pink);opacity:0.6;
+}
+.hero-deco-starburst{
+  position:absolute;pointer-events:none;z-index:0;
+  width:200px;height:200px;
+  background:conic-gradient(from 0deg,transparent 0deg,rgba(243,151,175,0.12) 10deg,transparent 20deg);
+  background-size:100% 100%;
+  border-radius:50%;
 }
 .hero-text .subtitle-bubble{
   display:inline-block;background:var(--green);color:var(--white);
@@ -417,6 +452,8 @@ footer .footer-copy{font-size:11px;color:rgba(255,255,255,0.4);font-family:'Syne
     <a href="#video">Video</a>
     <a href="#why-me">Why Me</a>
     <a href="#skills">Skills</a>
+    <a href="#" target="_blank">CV</a>
+    <a href="#" target="_blank">Blank Street CV</a>
   </nav>
   <button class="hire-btn">★ HIRE ME ★</button>
 </header>
@@ -424,12 +461,25 @@ footer .footer-copy{font-size:11px;color:rgba(255,255,255,0.4);font-family:'Syne
 <!-- HERO -->
 <section class="hero">
   <div class="dots-overlay"></div>
+  <!-- Scrapbook decorations -->
+  <div class="hero-deco-tape" style="top:60px;left:5%;transform:rotate(-8deg);"></div>
+  <div class="hero-deco-tape" style="bottom:120px;right:8%;transform:rotate(5deg);width:90px;"></div>
+  <div class="hero-deco-circle" style="top:15%;left:12%;"></div>
+  <div class="hero-deco-circle" style="bottom:20%;right:42%;width:50px;height:50px;border-color:var(--pink);"></div>
+  <div class="hero-deco-squiggle" style="top:25%;left:2%;">~~~</div>
+  <div class="hero-deco-squiggle" style="bottom:30%;right:15%;transform:rotate(12deg);">~*~</div>
+  <div class="hero-deco-arrow" style="bottom:15%;left:8%;">→</div>
+  <div class="hero-deco-heart" style="top:12%;right:30%;">♥</div>
+  <div class="hero-deco-heart" style="top:70%;left:18%;font-size:20px;">♥</div>
+  <div class="hero-deco-starburst" style="top:-50px;left:-60px;"></div>
+  <div class="hero-deco-starburst" style="bottom:-80px;right:20%;width:150px;height:150px;"></div>
   <div class="hero-text">
-    <h1>MEKDES<br><span class="outline">NORMAND</span></h1>
+    <h1>Mekdes<br><span class="outline">Normand</span></h1>
     <div class="subtitle-bubble">From the Counter to the Campaign ★</div>
     <br>
     <a href="#video" class="cta-btn">Watch My Video <span class="material-symbols-outlined">play_arrow</span></a>
     <div class="star star-green" style="position:absolute;top:-10px;right:20px;font-size:40px;transform:rotate(15deg);"></div>
+    <div class="star star-pink" style="position:absolute;bottom:30px;left:-20px;font-size:24px;transform:rotate(-20deg);"></div>
   </div>
   <div class="hero-collage">
     <div class="photo-main cutout">
@@ -514,60 +564,38 @@ footer .footer-copy{font-size:11px;color:rgba(255,255,255,0.4);font-family:'Syne
   </div>
 
   <div class="testi-card">
-    <div class="testi-photo"><div class="placeholder">01</div></div>
+    <div class="testi-photo">
+      <!-- Replace src with the real photo URL -->
+      <img alt="Photo of first reference" src="" style="width:100%;height:100%;object-fit:cover;"/>
+      <div class="placeholder" style="display:none;">01</div>
+    </div>
     <div class="testi-body">
       <div class="corner-star"></div>
       <div class="quote-mark">&ldquo;</div>
-      <p class="quote-text">Mekdes brings an energy to the floor that's contagious. She doesn't just serve customers — she connects with them. She sees the small details that others miss and consistently goes above and beyond to make sure every person who walks in feels welcome. She's exactly the kind of person who understands what a brand means at ground level.</p>
+      <p class="quote-text">Testimonial from your first reference goes here. Replace this with their actual words.</p>
       <div class="person-info">
         <div>
-          <div class="person-name">Sarah K.</div>
-          <div class="person-title">Store Manager, Blank Street Coffee</div>
+          <div class="person-name">Name</div>
+          <div class="person-title">Role &amp; Company</div>
         </div>
       </div>
     </div>
   </div>
 
   <div class="testi-card reverse">
-    <div class="testi-photo"><div class="placeholder">02</div></div>
-    <div class="testi-body">
-      <div class="corner-star"></div>
-      <div class="quote-mark">&ldquo;</div>
-      <p class="quote-text">Reliable, fast, and remarkably empathetic. Mekdes is a natural communicator — she reads the room, adapts instantly, and always maintains a positive energy even during the hardest shifts. I've seen her turn frustrated customers into loyal regulars with nothing but genuine warmth and quick thinking. She's a rare talent.</p>
-      <div class="person-info">
-        <div>
-          <div class="person-name">James R.</div>
-          <div class="person-title">Shift Lead, Blank Street Coffee</div>
-        </div>
-      </div>
+    <div class="testi-photo">
+      <!-- Replace src with the real photo URL -->
+      <img alt="Photo of second reference" src="" style="width:100%;height:100%;object-fit:cover;"/>
+      <div class="placeholder" style="display:none;">02</div>
     </div>
-  </div>
-
-  <div class="testi-card">
-    <div class="testi-photo"><div class="placeholder">03</div></div>
     <div class="testi-body">
       <div class="corner-star"></div>
       <div class="quote-mark">&ldquo;</div>
-      <p class="quote-text">Her ability to handle morning rushes while maintaining brand standards is world-class. Mekdes doesn't just do the job — she elevates it. She treats every cup, every interaction, every moment as an opportunity to represent what Blank Street stands for. That level of brand awareness from a team member is incredibly rare.</p>
+      <p class="quote-text">Testimonial from your second reference goes here. Replace this with their actual words.</p>
       <div class="person-info">
         <div>
-          <div class="person-name">Eliza M.</div>
-          <div class="person-title">Area Manager, Blank Street Coffee</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="testi-card reverse">
-    <div class="testi-photo"><div class="placeholder">04</div></div>
-    <div class="testi-body">
-      <div class="corner-star"></div>
-      <div class="quote-mark">&ldquo;</div>
-      <p class="quote-text">Mekdes is a strategic thinker who happens to be behind a counter. She notices patterns in customer behaviour, she thinks about why campaigns work or don't, and she genuinely cares about the brand she represents. She's ready for the next step — and marketing will be lucky to have her perspective.</p>
-      <div class="person-info">
-        <div>
-          <div class="person-name">Tom H.</div>
-          <div class="person-title">Team Lead, Blank Street Coffee</div>
+          <div class="person-name">Name</div>
+          <div class="person-title">Role &amp; Company</div>
         </div>
       </div>
     </div>
@@ -582,7 +610,6 @@ footer .footer-copy{font-size:11px;color:rgba(255,255,255,0.4);font-family:'Syne
   <div class="video-wrapper">
     <span class="material-symbols-outlined play-icon">play_circle</span>
   </div>
-  <blockquote>&ldquo;The best marketing strategies are born in the smallest moments of customer service.&rdquo;</blockquote>
 </section>
 
 <!-- WHY ME -->
@@ -620,7 +647,7 @@ footer .footer-copy{font-size:11px;color:rgba(255,255,255,0.4);font-family:'Syne
     <div class="skill-card"><h5>Adaptability</h5><p>Moved countries at 18. Thrived in high-pressure environments. I figure things out fast.</p></div>
     <div class="skill-card"><h5>Brand Awareness</h5><p>I protect brand standards on the front line and notice when campaigns land — or miss.</p></div>
     <div class="skill-card"><h5>Team Collaboration</h5><p>Dependable, positive, and built for fast-paced teams. I bring energy and I follow through.</p></div>
-    <div class="skill-card"><h5>Tech Proficiency</h5><p>Comfortable with POS systems, digital tools, and quick to learn new platforms.</p></div>
+    <div class="skill-card"><h5>Resourceful</h5><p>I find solutions fast, make the most of what's available, and figure things out without being told twice.</p></div>
   </div>
 </section>
 
