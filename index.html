@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MKTR_ZINE | MEKDES NORMAND — V2</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Be+Vietnam+Pro:wght@400;700&family=Syne:wght@800&family=Permanent+Marker&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--pink:#F397AF;--green:#739977;--black:#000000;--white:#FFFFFF;}
+body{font-family:'Be Vietnam Pro',sans-serif;background:var(--white);color:var(--black);overflow-x:hidden;}
+
+/* ★ DECORATIVE STARS — CSS-only sparkles */
+.star{position:absolute;pointer-events:none;z-index:5;}
+.star::before{content:"★";font-size:inherit;color:inherit;}
+.star-pink{color:var(--pink);}
+.star-green{color:var(--green);}
+.star-white{color:var(--white);}
+.star-black{color:var(--black);}
+
+/* ★ STICKER LABEL */
+.sticker{
+  display:inline-block;font-family:'Syne',sans-serif;font-weight:800;
+  font-size:13px;letter-spacing:0.08em;text-transform:uppercase;
+  padding:6px 20px;border-radius:50px;border:3px solid var(--black);
+  transform:rotate(-2deg);position:relative;z-index:2;
+}
+.sticker-pink{background:var(--pink);color:var(--black);}
+.sticker-green{background:var(--green);color:var(--white);}
+.sticker-white{background:var(--white);color:var(--black);}
+
+/* ★ SPEECH BUBBLE */
+.speech-bubble{
+  position:relative;background:var(--white);border:3px solid var(--black);
+  padding:20px 24px;margin:16px 0;
+}
+.speech-bubble::after{
+  content:"";position:absolute;bottom:-20px;left:40px;
+  border-width:20px 15px 0 15px;border-style:solid;
+  border-color:var(--black) transparent transparent transparent;
+}
+.speech-bubble::before{
+  content:"";position:absolute;bottom:-16px;left:42px;
+  border-width:17px 13px 0 13px;border-style:solid;
+  border-color:var(--white) transparent transparent transparent;z-index:1;
+}
+
+/* ★ CUT-OUT PHOTO STYLE */
+.cutout{
+  border:5px solid var(--white);box-shadow:4px 4px 0px var(--black);
+  position:relative;overflow:hidden;
+}
+.cutout img{width:100%;height:100%;object-fit:cover;filter:grayscale(100%) contrast(1.15);}
+
+/* ★ HALFTONE DOT BACKGROUND */
+.dots-bg{
+  background-image:radial-gradient(var(--pink) 8%,transparent 9%);
+  background-size:12px 12px;
+}
+.dots-bg-green{
+  background-image:radial-gradient(var(--green) 8%,transparent 9%);
+  background-size:12px 12px;
+}
+.dots-bg-black{
+  background-image:radial-gradient(rgba(0,0,0,0.15) 10%,transparent 11%);
+  background-size:4px 4px;
+}
+
+/* ★ COMIC PANEL BORDER */
+.comic-panel{border:4px solid var(--black);background:var(--white);position:relative;}
+
+/* ============================================ */
+/* HEADER                                        */
+/* ============================================ */
+header{
+  position:sticky;top:0;z-index:100;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:12px 40px;background:var(--pink);
+  border-bottom:4px solid var(--black);
+}
+header .logo{
+  font-family:'Permanent Marker',cursive;font-size:28px;color:var(--black);
+  transform:rotate(-1deg);
+}
+header nav{display:flex;gap:20px;}
+header nav a{
+  font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--black);
+  text-decoration:none;text-transform:uppercase;transition:all 0.15s;
+  padding:2px 8px;
+}
+header nav a:hover{background:var(--black);color:var(--pink);}
+header .hire-btn{
+  font-family:'Permanent Marker',cursive;font-size:18px;
+  background:var(--black);color:var(--pink);padding:8px 24px;
+  border:3px solid var(--black);cursor:pointer;transform:rotate(1deg);
+  transition:all 0.15s;
+}
+header .hire-btn:hover{transform:rotate(-1deg) scale(1.05);}
+
+/* ============================================ */
+/* HERO                                          */
+/* ============================================ */
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:64px 40px;gap:40px;
+  background:var(--white);position:relative;overflow:hidden;
+}
+.hero .dots-overlay{
+  position:absolute;top:0;right:0;width:50%;height:100%;
+  background-image:radial-gradient(var(--pink) 8%,transparent 9%);
+  background-size:14px 14px;opacity:0.4;pointer-events:none;
+}
+.hero-text{flex:1;z-index:2;position:relative;}
+.hero-text h1{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(72px,12vw,140px);line-height:0.85;
+  color:var(--black);letter-spacing:-0.03em;text-transform:uppercase;
+}
+.hero-text h1 span.outline{
+  -webkit-text-stroke:3px var(--black);color:transparent;
+}
+.hero-text .subtitle-bubble{
+  display:inline-block;background:var(--green);color:var(--white);
+  font-family:'Permanent Marker',cursive;font-size:clamp(18px,2.5vw,28px);
+  padding:10px 24px;border:3px solid var(--black);
+  transform:rotate(-2deg);margin-top:16px;
+  box-shadow:4px 4px 0px var(--black);
+}
+.hero-text .cta-btn{
+  display:inline-flex;align-items:center;gap:8px;margin-top:32px;
+  padding:16px 40px;background:var(--pink);color:var(--black);
+  font-family:'Bebas Neue',sans-serif;font-size:28px;text-transform:uppercase;
+  border:3px solid var(--black);box-shadow:6px 6px 0px var(--black);
+  cursor:pointer;transition:all 0.15s;text-decoration:none;
+  transform:rotate(1deg);
+}
+.cta-btn:hover{transform:rotate(-1deg) translate(-3px,-3px);box-shadow:10px 10px 0px var(--black);}
+
+.hero-collage{flex:1;position:relative;min-height:500px;z-index:2;}
+.hero-collage .photo-main{
+  width:75%;aspect-ratio:3/4;position:absolute;top:10%;right:5%;
+  transform:rotate(3deg);z-index:3;
+}
+.hero-collage .photo-secondary{
+  width:45%;aspect-ratio:1;position:absolute;bottom:5%;left:0;
+  transform:rotate(-5deg);z-index:4;border-color:var(--pink);
+}
+.hero-collage .deco-star{position:absolute;font-size:48px;z-index:5;}
+
+/* ============================================ */
+/* MY STORY                                      */
+/* ============================================ */
+.my-story{
+  background:var(--black);padding:80px 40px;position:relative;overflow:hidden;
+}
+.my-story .bg-dots{
+  position:absolute;top:0;left:0;width:100%;height:100%;
+  background-image:radial-gradient(rgba(115,153,119,0.15) 10%,transparent 11%);
+  background-size:6px 6px;pointer-events:none;
+}
+.my-story .section-header{position:relative;z-index:2;margin-bottom:56px;}
+.my-story .section-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(56px,7vw,96px);color:var(--white);line-height:0.9;
+  text-transform:uppercase;
+}
+.my-story .section-title span{color:var(--pink);}
+
+.story-card{
+  display:flex;gap:0;margin-bottom:48px;position:relative;z-index:2;
+  border:4px solid var(--white);background:var(--white);overflow:hidden;
+}
+.story-card.reverse{flex-direction:row-reverse;}
+.story-card .card-image{
+  flex:0 0 40%;position:relative;overflow:hidden;background:var(--green);
+}
+.story-card .card-image img{width:100%;height:100%;object-fit:cover;filter:grayscale(100%) contrast(1.15);min-height:350px;}
+.story-card .card-image .year-badge{
+  position:absolute;top:16px;left:16px;
+  background:var(--pink);color:var(--black);
+  font-family:'Permanent Marker',cursive;font-size:18px;
+  padding:6px 16px;border:3px solid var(--black);
+  transform:rotate(-3deg);z-index:3;
+  box-shadow:3px 3px 0px var(--black);
+}
+.story-card.reverse .card-image .year-badge{left:auto;right:16px;transform:rotate(3deg);}
+.story-card .card-text{
+  flex:1;padding:32px;display:flex;flex-direction:column;justify-content:center;
+  background:var(--white);position:relative;
+}
+.story-card .card-text .dots-corner{
+  position:absolute;top:0;right:0;width:120px;height:120px;
+  background-image:radial-gradient(var(--pink) 8%,transparent 9%);
+  background-size:10px 10px;opacity:0.3;pointer-events:none;
+}
+.story-card.reverse .card-text .dots-corner{right:auto;left:0;}
+.story-card .card-heading{
+  font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,3.5vw,42px);
+  color:var(--black);line-height:1;margin-bottom:4px;text-transform:uppercase;
+}
+.story-card .card-role{
+  font-family:'Syne',sans-serif;font-weight:800;font-size:12px;
+  color:var(--green);letter-spacing:0.06em;text-transform:uppercase;
+  margin-bottom:16px;padding-bottom:12px;
+  border-bottom:3px solid var(--pink);display:inline-block;
+}
+.story-card .card-body{font-size:15px;line-height:1.75;color:var(--black);}
+
+/* ============================================ */
+/* TESTIMONIALS                                  */
+/* ============================================ */
+.testimonials{
+  background:var(--green);padding:80px 40px;position:relative;overflow:hidden;
+}
+.testimonials .bg-dots{
+  position:absolute;top:0;left:0;width:100%;height:100%;
+  background-image:radial-gradient(rgba(0,0,0,0.1) 10%,transparent 11%);
+  background-size:5px 5px;pointer-events:none;
+}
+.testimonials .section-header{position:relative;z-index:2;margin-bottom:48px;}
+.testimonials .section-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(48px,6vw,80px);color:var(--white);line-height:0.95;
+  text-transform:uppercase;
+}
+
+.testi-card{
+  display:flex;gap:0;margin-bottom:40px;position:relative;z-index:2;
+  background:var(--white);border:4px solid var(--black);
+  box-shadow:8px 8px 0px var(--black);overflow:hidden;
+}
+.testi-card.reverse{flex-direction:row-reverse;}
+.testi-card .testi-photo{
+  flex:0 0 260px;background:var(--pink);position:relative;overflow:hidden;
+  min-height:320px;
+}
+.testi-card.reverse .testi-photo{background:var(--black);}
+.testi-card .testi-photo .placeholder{
+  width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  font-family:'Permanent Marker',cursive;font-size:72px;color:var(--white);opacity:0.2;
+}
+.testi-card .testi-photo img{width:100%;height:100%;object-fit:cover;}
+.testi-card .testi-body{flex:1;padding:36px;display:flex;flex-direction:column;justify-content:center;position:relative;}
+.testi-card .testi-body .corner-star{
+  position:absolute;top:12px;right:16px;font-size:32px;color:var(--pink);
+}
+.testi-card .testi-body .corner-star::before{content:"★";}
+.testi-card .quote-mark{
+  font-family:'Bebas Neue',sans-serif;font-size:96px;line-height:0.5;
+  color:var(--pink);margin-bottom:12px;
+}
+.testi-card.reverse .quote-mark{color:var(--green);}
+.testi-card .quote-text{font-size:17px;line-height:1.8;color:var(--black);font-style:italic;margin-bottom:20px;}
+.testi-card .person-info{
+  display:flex;align-items:center;gap:12px;
+  padding-top:16px;border-top:3px solid var(--pink);
+}
+.testi-card.reverse .person-info{border-color:var(--green);}
+.testi-card .person-name{font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--black);}
+.testi-card .person-title{
+  font-family:'Syne',sans-serif;font-weight:800;font-size:11px;
+  color:var(--green);letter-spacing:0.05em;text-transform:uppercase;
+}
+
+/* ============================================ */
+/* VIDEO                                         */
+/* ============================================ */
+.video-section{
+  background:var(--black);padding:80px 40px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.video-section .bg-burst{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:800px;height:800px;
+  background:conic-gradient(var(--green) 0deg,transparent 15deg,transparent 30deg,var(--green) 30deg,transparent 45deg,transparent 60deg,var(--green) 60deg,transparent 75deg,transparent 90deg,var(--green) 90deg,transparent 105deg,transparent 120deg,var(--green) 120deg,transparent 135deg,transparent 150deg,var(--green) 150deg,transparent 165deg,transparent 180deg,var(--green) 180deg,transparent 195deg,transparent 210deg,var(--green) 210deg,transparent 225deg,transparent 240deg,var(--green) 240deg,transparent 255deg,transparent 270deg,var(--green) 270deg,transparent 285deg,transparent 300deg,var(--green) 300deg,transparent 315deg,transparent 330deg,var(--green) 330deg,transparent 345deg);
+  opacity:0.08;pointer-events:none;border-radius:50%;
+}
+.video-section .section-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(48px,6vw,80px);color:var(--white);
+  position:relative;z-index:2;margin-bottom:8px;text-transform:uppercase;
+}
+.video-section .pink-line{width:200px;height:4px;background:var(--pink);margin:0 auto 48px;position:relative;z-index:2;}
+.video-wrapper{
+  max-width:880px;margin:0 auto;aspect-ratio:16/9;
+  border:5px solid var(--pink);box-shadow:12px 12px 0px var(--pink);
+  background:#0a0a0a;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;position:relative;z-index:2;
+}
+.video-wrapper .play-icon{font-size:96px;color:var(--pink);transition:transform 0.2s;}
+.video-wrapper:hover .play-icon{transform:scale(1.15);}
+.video-section blockquote{
+  max-width:600px;margin:32px auto 0;font-style:italic;font-size:17px;
+  color:var(--green);line-height:1.6;position:relative;z-index:2;
+}
+
+/* ============================================ */
+/* WHY ME                                        */
+/* ============================================ */
+.why-me{
+  background:var(--white);padding:80px 40px;
+  display:flex;gap:48px;align-items:center;position:relative;overflow:hidden;
+}
+.why-me .bg-dots-corner{
+  position:absolute;bottom:0;left:0;width:300px;height:300px;
+  background-image:radial-gradient(var(--green) 8%,transparent 9%);
+  background-size:12px 12px;opacity:0.2;pointer-events:none;
+}
+.why-me .photo-collage{flex:0 0 42%;position:relative;min-height:500px;z-index:2;}
+.why-me .photo-collage .photo-1{
+  width:85%;aspect-ratio:3/4;position:absolute;top:0;left:5%;
+  border:5px solid var(--white);box-shadow:6px 6px 0px var(--black);
+  transform:rotate(-2deg);overflow:hidden;z-index:2;
+}
+.why-me .photo-collage .photo-1 img{width:100%;height:100%;object-fit:cover;filter:grayscale(100%) contrast(1.15);}
+.why-me .photo-collage .accent-shape{
+  position:absolute;bottom:10%;right:-5%;width:60%;aspect-ratio:1;
+  background:var(--pink);transform:rotate(5deg);z-index:1;
+  border:4px solid var(--black);
+}
+.why-me .text-side{flex:1;z-index:2;}
+.why-me .section-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(56px,7vw,96px);color:var(--black);line-height:0.9;
+  text-transform:uppercase;margin-bottom:8px;
+}
+.why-me .pink-underline{width:80px;height:5px;background:var(--pink);margin-bottom:28px;}
+.why-me .body-text{font-size:17px;line-height:1.8;color:var(--black);margin-bottom:16px;}
+
+.stat-bar{
+  display:flex;background:var(--black);border:3px solid var(--black);margin-top:32px;
+  box-shadow:6px 6px 0px var(--green);
+}
+.stat-bar .stat{flex:1;text-align:center;padding:16px;}
+.stat-bar .stat+.stat{border-left:2px solid var(--green);}
+.stat-bar .stat-number{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--pink);}
+.stat-bar .stat-label{font-family:'Syne',sans-serif;font-weight:800;font-size:11px;color:var(--white);letter-spacing:0.06em;text-transform:uppercase;}
+
+/* ============================================ */
+/* SKILLS                                        */
+/* ============================================ */
+.skills{background:var(--pink);padding:80px 40px;position:relative;overflow:hidden;}
+.skills .bg-dots{
+  position:absolute;top:0;left:0;width:100%;height:100%;
+  background-image:radial-gradient(rgba(0,0,0,0.08) 10%,transparent 11%);
+  background-size:5px 5px;pointer-events:none;
+}
+.skills .section-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(48px,6vw,80px);color:var(--black);text-align:center;
+  margin-bottom:48px;position:relative;z-index:2;text-transform:uppercase;
+}
+.skills-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+  max-width:1000px;margin:0 auto;position:relative;z-index:2;
+}
+.skill-card{
+  padding:24px;border:3px solid var(--black);
+  box-shadow:5px 5px 0px var(--black);transition:transform 0.15s;
+}
+.skill-card:hover{transform:rotate(-1deg) translateY(-4px);}
+.skill-card:nth-child(odd){background:var(--white);transform:rotate(-1deg);}
+.skill-card:nth-child(even){background:var(--green);color:var(--white);transform:rotate(1deg);}
+.skill-card:nth-child(even):hover{transform:rotate(-1deg) translateY(-4px);}
+.skill-card h5{font-family:'Bebas Neue',sans-serif;font-size:24px;margin-bottom:8px;color:var(--black);}
+.skill-card:nth-child(even) h5{color:var(--white);}
+.skill-card p{font-size:13px;line-height:1.55;color:var(--black);}
+.skill-card:nth-child(even) p{color:rgba(255,255,255,0.9);}
+
+/* ============================================ */
+/* FOOTER                                        */
+/* ============================================ */
+footer{
+  background:var(--black);padding:40px;
+  display:flex;justify-content:space-between;align-items:center;
+  border-top:4px solid var(--green);
+}
+footer .footer-name{font-family:'Permanent Marker',cursive;font-size:22px;color:var(--pink);}
+footer .footer-links{display:flex;gap:20px;}
+footer .footer-links a{
+  font-family:'Syne',sans-serif;font-weight:800;font-size:12px;
+  color:var(--green);text-decoration:none;text-transform:uppercase;
+  letter-spacing:0.05em;transition:color 0.15s;padding:4px 12px;
+  border:2px solid var(--green);border-radius:50px;
+}
+footer .footer-links a:hover{background:var(--green);color:var(--white);}
+footer .footer-copy{font-size:11px;color:rgba(255,255,255,0.4);font-family:'Syne',sans-serif;text-transform:uppercase;letter-spacing:0.05em;}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  header{padding:10px 16px;}
+  header nav{display:none;}
+  .hero{flex-direction:column;padding:40px 16px;min-height:auto;}
+  .hero-collage{min-height:350px;width:100%;}
+  .hero-collage .photo-main{width:70%;right:0;}
+  .hero-collage .photo-secondary{width:40%;}
+  .story-card,.story-card.reverse{flex-direction:column;}
+  .story-card .card-image{flex:none;width:100%;height:250px;}
+  .testi-card,.testi-card.reverse{flex-direction:column;}
+  .testi-card .testi-photo{flex:none;width:100%;height:250px;}
+  .why-me{flex-direction:column;padding:40px 16px;}
+  .why-me .photo-collage{flex:none;width:100%;min-height:350px;}
+  .skills-grid{grid-template-columns:1fr;}
+  footer{flex-direction:column;gap:16px;text-align:center;}
+  .my-story,.testimonials,.video-section,.skills{padding:48px 16px;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">MKTR_ZINE ★</div>
+  <nav>
+    <a href="#story">Story</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#video">Video</a>
+    <a href="#why-me">Why Me</a>
+    <a href="#skills">Skills</a>
+  </nav>
+  <button class="hire-btn">★ HIRE ME ★</button>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="dots-overlay"></div>
+  <div class="hero-text">
+    <h1>MEKDES<br><span class="outline">NORMAND</span></h1>
+    <div class="subtitle-bubble">From the Counter to the Campaign ★</div>
+    <br>
+    <a href="#video" class="cta-btn">Watch My Video <span class="material-symbols-outlined">play_arrow</span></a>
+    <div class="star star-green" style="position:absolute;top:-10px;right:20px;font-size:40px;transform:rotate(15deg);"></div>
+  </div>
+  <div class="hero-collage">
+    <div class="photo-main cutout">
+      <img alt="Mekdes Normand" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUljYyV7kv123VrFTDTzpSneg0x1QtoPmd5E6EJPD-ghF-82S1Dr98JuSZqmGCzcEDui2BAtJvfFoN0K20cVrmWaADdfpLWOx8N719aKR7EkVwW2M6kxbwgzUjcKAz9eEemQHP_PtQPVHnJW1IYtU5sft4kyCPPbcQ3RDGmgG5YVBD7q3oDNF_6TA2g6E1UNyLfCIxMgKYcK3OXQRQLjusLaeyM2_CQcfaxBsymvOGPbXwT0wb_y9rkLVk0WD88py0StfgXf213r8"/>
+    </div>
+    <div class="photo-secondary cutout" style="border-color:var(--pink);">
+      <img alt="At work" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkJmLjHnKvndcRtqNAbZqxh1l-ilw4we3rJ65gcJZhuQcMo7OceroMBCM0__LqMqJcnwMVH_fYI2NqixeA1Z4q-rgiGREJkLLjwWQviFgXu6m_Dn_oDQT4lBT6ZyRjC4UYUYEiD3K5c6WD484GjnfJLRCKt-EBIRXdQIpjPNukbH00KZ2l58s3aFjjfK1nZ2GXQUa4ztFtVKlGcvwjsXAqwgwAILuRmPZoTWN1wnU_zr8iIeoUzUCMR2vWGhAxTlf-pENWNbkeUFs"/>
+    </div>
+    <div class="star star-pink" style="position:absolute;top:5%;right:0;font-size:52px;transform:rotate(12deg);"></div>
+    <div class="star star-green" style="position:absolute;bottom:15%;right:35%;font-size:28px;transform:rotate(-10deg);"></div>
+    <div class="sticker sticker-green" style="position:absolute;bottom:0;left:10%;z-index:6;transform:rotate(-6deg);">Blank Street Insider</div>
+  </div>
+</section>
+
+<!-- MY STORY -->
+<section class="my-story" id="story">
+  <div class="bg-dots"></div>
+  <div class="section-header">
+    <span class="sticker sticker-pink" style="margin-bottom:16px;">The Journey</span>
+    <h2 class="section-title">MY <span>STORY</span> ★</h2>
+  </div>
+
+  <div class="story-card">
+    <div class="card-image">
+      <div class="year-badge">★ 2022</div>
+      <img alt="Small-town Canada" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbkHHRrMZq5f1uJ5fFhBF6sasE53NgQhgqqsp3IzTlB96S405ycublknpgB0nB2sFTRA1YY93KomFoBG-rO3dd6oNqU7fkkroRA0F6l5zz5bm7uo1JqzN2hAhyrIcGqV9ng3XQJXLZdzpTcIaLwfoujapOmQJ9rhJznij_gTsIm29ldH2fUHTlAS9GfP_crvhoAOSAAqQpcFr59_QyRcZQF0TMfP2s_ErjPeaR10MM--dlZu4-Hu3fcRJcazWIA3H1oFof_laytQ0"/>
+    </div>
+    <div class="card-text">
+      <div class="dots-corner"></div>
+      <h3 class="card-heading">Small-Town Canada</h3>
+      <span class="card-role">Cashier — The Ice Cream Shop, Bouctouche, NB</span>
+      <p class="card-body">Growing up in a small town in New Brunswick, I learned the fundamentals of customer service the old-fashioned way — face to face, one person at a time. At The Ice Cream Shop, I built genuine rapport with regulars, drove repeat business through personalised service, and discovered that every single customer interaction tells you something about what people want and how they want to feel. That foundation — reading people, making them feel seen — has shaped everything I've done since.</p>
+    </div>
+  </div>
+
+  <div class="story-card reverse">
+    <div class="card-image">
+      <div class="year-badge">★ 2023</div>
+      <img alt="Crossing the Atlantic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGd5xqgjvDqr8WZz2cF7F1EtLb0Ck0K6NQO6NBU3qFkDYJPSbdyH0914eMtWK2dWS5UFkbySvPiycTOTyl0uaWu_-G8lg5x9-R-e9Xfapp5M8R2be08lxuKjSdpH0pyhpJzJr1Cnv9lqcGMeVyV12T9ELQMUwYQvRztrjemHfuqIVRO2-cYHVQDG43nVzZJxHthbWRxZzvkPt5kTgcnue5huS_M1fQtd2V7KMXU4pXWKDMpJY1I4rOyEkdBXI4aHlF2s8ye67ljnc"/>
+    </div>
+    <div class="card-text">
+      <div class="dots-corner"></div>
+      <h3 class="card-heading">Crossed the Atlantic</h3>
+      <span class="card-role">Waitress — The Cliff Poole, Bournemouth</span>
+      <p class="card-body">At 18, I made the decision to leave Canada and move to the UK entirely on my own — self-funded, no safety net. I landed in Bournemouth and threw myself into waitressing at The Cliff Poole, a high-volume restaurant where the pace never let up. I learned how to coordinate under pressure, communicate clearly with a kitchen team, and deliver consistent service when the room was full and the clock was against you. Moving across the world alone taught me grit. Working The Cliff taught me how to channel it.</p>
+    </div>
+  </div>
+
+  <div class="story-card">
+    <div class="card-image">
+      <div class="year-badge">★ 2024</div>
+      <img alt="Finding Blank Street" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkJmLjHnKvndcRtqNAbZqxh1l-ilw4we3rJ65gcJZhuQcMo7OceroMBCM0__LqMqJcnwMVH_fYI2NqixeA1Z4q-rgiGREJkLLjwWQviFgXu6m_Dn_oDQT4lBT6ZyRjC4UYUYEiD3K5c6WD484GjnfJLRCKt-EBIRXdQIpjPNukbH00KZ2l58s3aFjjfK1nZ2GXQUa4ztFtVKlGcvwjsXAqwgwAILuRmPZoTWN1wnU_zr8iIeoUzUCMR2vWGhAxTlf-pENWNbkeUFs"/>
+    </div>
+    <div class="card-text">
+      <div class="dots-corner"></div>
+      <h3 class="card-heading">Found Blank Street</h3>
+      <span class="card-role">Barista — Blank Street Coffee, London Soho</span>
+      <p class="card-body">London is where everything clicked. I joined Blank Street Coffee in Soho and immediately connected with the brand — the energy, the design, the way it speaks to its audience. Over nearly two years I've worked across multiple high-traffic locations, preparing drinks at speed while maintaining the quality and warmth that keeps people coming back. But more than that, I started paying attention to the marketing — the packaging, the campaigns, the way customers respond to seasonal launches. I see the brand from the inside out, every single day.</p>
+    </div>
+  </div>
+
+  <div class="story-card reverse">
+    <div class="card-image">
+      <div class="year-badge">★ 2025–26</div>
+      <img alt="The next chapter" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATLIzw-DCvrLyyPWpD-aNNJnWbpYP0jF8kSfrBQBa_bKQb4u5Irmt75I4VdfPuvED1vMAULhO8u1nm5RaY3tsZzfjZWwe3nvsHX700fJW6JDmrZ61AXx0xT_yrdFe0L_5PZx2I7YeCa07jmHSuq0LLjUG43FlQZfjtbzRjbaTFH8S1Htx0ecyt0SM1_QgsOV7BZHE5fqtXrbiOy64JfMZcYqLkiG22HzLSaELlkTAZMu3VNKqCrPBcSP_T0UZxXYgSlLZHR9zJepM"/>
+    </div>
+    <div class="card-text">
+      <div class="dots-corner"></div>
+      <h3 class="card-heading">The Next Chapter</h3>
+      <span class="card-role">Front Desk — SoulCycle + Blank Street Coffee</span>
+      <p class="card-body">While continuing at Blank Street, I also picked up a role at SoulCycle — another brand-led, community-driven company where the customer experience is the marketing. Between the two, I've built a deep understanding of how lifestyle brands create loyalty, how physical spaces translate brand identity, and how the people on the front line are the ones who truly shape customer perception. Now I'm ready to take everything I've learned behind the counter and bring it to the campaign table.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="bg-dots"></div>
+  <div class="section-header">
+    <span class="sticker sticker-white" style="margin-bottom:16px;">Social Proof ★</span>
+    <h2 class="section-title">WHAT MY TEAM SAYS</h2>
+  </div>
+
+  <div class="testi-card">
+    <div class="testi-photo"><div class="placeholder">01</div></div>
+    <div class="testi-body">
+      <div class="corner-star"></div>
+      <div class="quote-mark">&ldquo;</div>
+      <p class="quote-text">Mekdes brings an energy to the floor that's contagious. She doesn't just serve customers — she connects with them. She sees the small details that others miss and consistently goes above and beyond to make sure every person who walks in feels welcome. She's exactly the kind of person who understands what a brand means at ground level.</p>
+      <div class="person-info">
+        <div>
+          <div class="person-name">Sarah K.</div>
+          <div class="person-title">Store Manager, Blank Street Coffee</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="testi-card reverse">
+    <div class="testi-photo"><div class="placeholder">02</div></div>
+    <div class="testi-body">
+      <div class="corner-star"></div>
+      <div class="quote-mark">&ldquo;</div>
+      <p class="quote-text">Reliable, fast, and remarkably empathetic. Mekdes is a natural communicator — she reads the room, adapts instantly, and always maintains a positive energy even during the hardest shifts. I've seen her turn frustrated customers into loyal regulars with nothing but genuine warmth and quick thinking. She's a rare talent.</p>
+      <div class="person-info">
+        <div>
+          <div class="person-name">James R.</div>
+          <div class="person-title">Shift Lead, Blank Street Coffee</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="testi-card">
+    <div class="testi-photo"><div class="placeholder">03</div></div>
+    <div class="testi-body">
+      <div class="corner-star"></div>
+      <div class="quote-mark">&ldquo;</div>
+      <p class="quote-text">Her ability to handle morning rushes while maintaining brand standards is world-class. Mekdes doesn't just do the job — she elevates it. She treats every cup, every interaction, every moment as an opportunity to represent what Blank Street stands for. That level of brand awareness from a team member is incredibly rare.</p>
+      <div class="person-info">
+        <div>
+          <div class="person-name">Eliza M.</div>
+          <div class="person-title">Area Manager, Blank Street Coffee</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="testi-card reverse">
+    <div class="testi-photo"><div class="placeholder">04</div></div>
+    <div class="testi-body">
+      <div class="corner-star"></div>
+      <div class="quote-mark">&ldquo;</div>
+      <p class="quote-text">Mekdes is a strategic thinker who happens to be behind a counter. She notices patterns in customer behaviour, she thinks about why campaigns work or don't, and she genuinely cares about the brand she represents. She's ready for the next step — and marketing will be lucky to have her perspective.</p>
+      <div class="person-info">
+        <div>
+          <div class="person-name">Tom H.</div>
+          <div class="person-title">Team Lead, Blank Street Coffee</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="video-section" id="video">
+  <div class="bg-burst"></div>
+  <h2 class="section-title">HEAR IT FROM ME ★</h2>
+  <div class="pink-line"></div>
+  <div class="video-wrapper">
+    <span class="material-symbols-outlined play-icon">play_circle</span>
+  </div>
+  <blockquote>&ldquo;The best marketing strategies are born in the smallest moments of customer service.&rdquo;</blockquote>
+</section>
+
+<!-- WHY ME -->
+<section class="why-me" id="why-me">
+  <div class="bg-dots-corner"></div>
+  <div class="photo-collage">
+    <div class="photo-1">
+      <img alt="Mekdes at work" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkJmLjHnKvndcRtqNAbZqxh1l-ilw4we3rJ65gcJZhuQcMo7OceroMBCM0__LqMqJcnwMVH_fYI2NqixeA1Z4q-rgiGREJkLLjwWQviFgXu6m_Dn_oDQT4lBT6ZyRjC4UYUYEiD3K5c6WD484GjnfJLRCKt-EBIRXdQIpjPNukbH00KZ2l58s3aFjjfK1nZ2GXQUa4ztFtVKlGcvwjsXAqwgwAILuRmPZoTWN1wnU_zr8iIeoUzUCMR2vWGhAxTlf-pENWNbkeUFs"/>
+    </div>
+    <div class="accent-shape"></div>
+    <div class="star star-black" style="position:absolute;top:5%;right:10%;font-size:36px;transform:rotate(20deg);"></div>
+  </div>
+  <div class="text-side">
+    <span class="sticker sticker-pink" style="margin-bottom:16px;">The Case ★</span>
+    <h2 class="section-title">WHY ME</h2>
+    <div class="pink-underline"></div>
+    <p class="body-text">I don't study marketing from a distance — I live it on the front line every single day. Every morning I manage the balance between brand consistency and genuine human connection. I've spent nearly two years watching how Blank Street's customers behave, what draws them in, what makes them come back, and what falls flat.</p>
+    <p class="body-text">Marketing isn't just about campaigns — it's about understanding the gap between what a brand promises and what a customer actually experiences. I've stood in that gap thousands of times. I know your demographic because I serve them, I talk to them, I see what resonates.</p>
+    <p class="body-text">I'm ready to take that perspective off the shop floor and into the marketing team — where I can help shape the story I've been part of for two years.</p>
+    <div class="stat-bar">
+      <div class="stat"><div class="stat-number">2 YEARS</div><div class="stat-label">At Blank Street</div></div>
+      <div class="stat"><div class="stat-number">MULTIPLE</div><div class="stat-label">Locations</div></div>
+      <div class="stat"><div class="stat-number">1000s</div><div class="stat-label">Customers Served</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills" id="skills">
+  <div class="bg-dots"></div>
+  <h2 class="section-title">WHAT I BRING ★</h2>
+  <div class="skills-grid">
+    <div class="skill-card"><h5>Customer Insight</h5><p>I understand your audience because I speak to them every day. Real consumer data, not assumptions.</p></div>
+    <div class="skill-card"><h5>Communication</h5><p>Clear, persuasive, and adaptable — whether it's a customer, a team, or a campaign brief.</p></div>
+    <div class="skill-card"><h5>Adaptability</h5><p>Moved countries at 18. Thrived in high-pressure environments. I figure things out fast.</p></div>
+    <div class="skill-card"><h5>Brand Awareness</h5><p>I protect brand standards on the front line and notice when campaigns land — or miss.</p></div>
+    <div class="skill-card"><h5>Team Collaboration</h5><p>Dependable, positive, and built for fast-paced teams. I bring energy and I follow through.</p></div>
+    <div class="skill-card"><h5>Tech Proficiency</h5><p>Comfortable with POS systems, digital tools, and quick to learn new platforms.</p></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-name">★ MEKDES NORMAND ★</div>
+  <div class="footer-links">
+    <a href="#">Instagram</a>
+    <a href="#">LinkedIn</a>
+    <a href="#">Download CV</a>
+  </div>
+  <div class="footer-copy">&copy; 2026 Portfolio Zine</div>
+</footer>
+
+</body>
+</html>
