@@ -50,7 +50,7 @@ body{font-family:'Be Vietnam Pro',sans-serif;background:var(--white);color:var(-
   border:5px solid var(--white);box-shadow:4px 4px 0px var(--black);
   position:relative;overflow:hidden;
 }
-.cutout img{width:100%;height:100%;object-fit:cover;object-position:center 20%;}
+.cutout img{width:100%;height:100%;object-fit:cover;object-position:right 20%;}
 
 /* ★ HALFTONE DOT BACKGROUND */
 .dots-bg{
@@ -102,8 +102,8 @@ header .hire-btn:hover{transform:rotate(-1deg) scale(1.05);}
 /* ============================================ */
 .hero{
   min-height:100vh;display:flex;align-items:center;
-  padding:64px 40px;gap:40px;
-  background:var(--white);position:relative;overflow:hidden;
+  padding:64px 40px 80px;gap:40px;
+  background:var(--white);position:relative;overflow:visible;
 }
 .hero .dots-overlay{
   position:absolute;top:0;right:0;width:50%;height:100%;
@@ -177,7 +177,7 @@ header .hire-btn:hover{transform:rotate(-1deg) scale(1.05);}
   transform:rotate(3deg);z-index:3;
 }
 .hero-collage .photo-secondary{
-  width:45%;aspect-ratio:1;position:absolute;bottom:5%;left:0;
+  width:40%;aspect-ratio:1;position:absolute;bottom:0%;left:-5%;
   transform:rotate(-5deg);z-index:4;border-color:var(--pink);
 }
 .hero-collage .deco-star{position:absolute;font-size:48px;z-index:5;}
@@ -334,9 +334,8 @@ header .hire-btn:hover{transform:rotate(-1deg) scale(1.05);}
 /* WHY ME                                        */
 /* ============================================ */
 .why-me{
-  border-top:4px solid var(--black);
   background:var(--green);padding:80px 40px;color:var(--white);
-  display:flex;gap:48px;align-items:center;position:relative;overflow:hidden;
+  display:flex;gap:48px;align-items:center;position:relative;overflow:visible;
 }
 .why-me .bg-dots-corner{
   position:absolute;bottom:0;left:0;width:300px;height:300px;
@@ -450,9 +449,8 @@ footer .footer-copy{font-size:11px;color:rgba(255,255,255,0.4);font-family:'Syne
   <nav>
     <a href="#why-me">Why Me</a>
     <a href="#video">Video</a>
+    <a href="#cv">Mekky's CVs</a>
     <a href="#testimonials">Testimonials</a>
-    <a href="blank-street-cv.pdf" target="_blank">Blank Street CV</a>
-    <a href="personal-cv.pdf" target="_blank">CV</a>
     <a href="#skills">Skills</a>
   </nav>
   
@@ -513,9 +511,9 @@ footer .footer-copy{font-size:11px;color:rgba(255,255,255,0.4);font-family:'Syne
     <span class="sticker sticker-pink" style="margin-bottom:16px;">The Case ★</span>
     <h2 class="section-title">WHY ME</h2>
     <div class="pink-underline"></div>
-    <p class="body-text">In my first few weeks at Blank Street, I was named Most Valuable Barista. Since then I’ve represented the brand at London Fashion Week, helped launch the Cherry Glaze and Lemon Loaf Matcha at the Spring Actovation on Charlotte Street, and worked across multiple high-traffic London stores.</p>
-    <p class="body-text">I’ve seen firsthand how visual merchandising, atmosphere, and genuine energy shape the way customers experience a brand — and I’ve been part of making that happen every single shift. I know your demographic because I serve them, talk to them, and see exactly what resonates.</p>
-    <p class="body-text">I’m ready to take that perspective off the shop floor and into the marketing team — bringing real customer insight, creative thinking, and two years of living the Blank Street brand every day.</p>
+    <p class="body-text">I’ve spent two years at Blank Street — not just making coffee, but learning who our customers are, what brings them back, and what makes them talk about us. I know the demographic inside out because I interact with them every single day.</p>
+    <p class="body-text">I’m resourceful, eager, and proactive. Whether it was earning Most Valuable Barista in my first month, representing the brand at London Fashion Week, or helping execute the Spring Activation launch, I’ve always found ways to contribute beyond my role. I’ve worked closely alongside the marketing team during events and understand what their expectations look like in practice.</p>
+    <p class="body-text">I’m not just applying for this secondment — I’ve been preparing for it for two years. I bring frontline customer insight, creative energy, and a genuine love for this brand.</p>
     <div class="stat-bar">
       <div class="stat"><div class="stat-number">2 YEARS</div><div class="stat-label">At Blank Street</div></div>
       <div class="stat"><div class="stat-number">MULTIPLE</div><div class="stat-label">Locations</div></div>
@@ -537,6 +535,20 @@ footer .footer-copy{font-size:11px;color:rgba(255,255,255,0.4);font-family:'Syne
   </div>
 </section>
 
+<!-- CV -->
+<section class="cv-section" id="cv" style="background:var(--pink);padding:100px 40px;text-align:center;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:0;left:0;width:100%;height:100%;background-image:radial-gradient(rgba(0,0,0,0.06) 10%,transparent 11%);background-size:8px 8px;pointer-events:none;"></div>
+  <div style="position:relative;z-index:2;">
+    <span class="sticker sticker-pink" style="margin-bottom:24px;font-size:15px;">★ The Important Stuff ★</span>
+    <h2 style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:clamp(56px,10vw,120px);color:var(--black);margin-top:24px;margin-bottom:8px;line-height:0.9;">Mekky's CVs</h2>
+    <p style="font-family:'Permanent Marker',cursive;font-size:clamp(18px,3vw,28px);color:var(--black);margin-bottom:48px;transform:rotate(-1deg);">Everything you need to know ★</p>
+    <div style="display:flex;gap:32px;justify-content:center;flex-wrap:wrap;">
+      <a href="blank-street-cv.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:12px;padding:24px 56px;background:var(--green);color:var(--white);font-family:'Bebas Neue',sans-serif;font-size:36px;text-transform:uppercase;border:4px solid var(--white);box-shadow:8px 8px 0px var(--pink);text-decoration:none;transform:rotate(-2deg);transition:all 0.15s;">Blank Street CV <span class="material-symbols-outlined" style="font-size:32px;">open_in_new</span></a>
+      <a href="personal-cv.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:12px;padding:24px 56px;background:var(--pink);color:var(--black);font-family:'Bebas Neue',sans-serif;font-size:36px;text-transform:uppercase;border:4px solid var(--white);box-shadow:8px 8px 0px var(--green);text-decoration:none;transform:rotate(2deg);transition:all 0.15s;">Personal CV <span class="material-symbols-outlined" style="font-size:32px;">open_in_new</span></a>
+    </div>
+  </div>
+</section>
+
 <!-- TESTIMONIALS -->
 <section class="testimonials" id="testimonials">
   <div class="bg-dots"></div>
@@ -552,7 +564,7 @@ footer .footer-copy{font-size:11px;color:rgba(255,255,255,0.4);font-family:'Syne
     <div class="testi-body">
       <div class="corner-star"></div>
       <div class="quote-mark">&ldquo;</div>
-      <p class="quote-text">I have worked closely with Mekky for the past two years at Blank Street and from the very beginning, I have admired her work ethic and natural ability to connect with the people around her. Within her first month, she was recognised as Most Valued Barista by both managers and shift leads which was only the start of the positive impact she would make. Since then, she has continued to grow and became a true Blank Street ambassador. She is someone who is proactive, always eager to contribute and help those around her. She has represented Blank Street not only as an all rounder barista, but also at Fashion Week and as a bar manager at the latest Spring Actovation. Her bright energy is contagious and she brings it to every team she works in. You can rely on her without having to ask, whether you need a hand during a busy rush, or to get strawberry jam from another store, she is always one step ahead. I am confident that her initiative, strong understanding of the brand and creativity would make her an exceptional addition to the marketing team.</p>
+      <p class="quote-text">I have worked closely with Mekky for the past two years at Blank Street and from the very beginning, I have admired her work ethic and natural ability to connect with the people around her. Within her first month, she was recognised as Most Valued Barista by both managers and shift leads which was only the start of the positive impact she would make. Since then, she has continued to grow and became a true Blank Street ambassador. She is someone who is proactive, always eager to contribute and help those around her. She has represented Blank Street not only as an all rounder barista, but also at Fashion Week and as a bar manager at the latest Spring Activation. Her bright energy is contagious and she brings it to every team she works in. You can rely on her without having to ask, whether you need a hand during a busy rush, or to get strawberry jam from another store, she is always one step ahead. I am confident that her initiative, strong understanding of the brand and creativity would make her an exceptional addition to the marketing team.</p>
       <div class="person-info">
         <div>
           <div class="person-name">Laura Kovalicka</div>
@@ -580,27 +592,17 @@ footer .footer-copy{font-size:11px;color:rgba(255,255,255,0.4);font-family:'Syne
   </div>
 </section>
 
-<!-- CV -->
-<section class="cv-section" id="cv" style="background:var(--white);padding:80px 40px;text-align:center;position:relative;overflow:hidden;border-top:4px solid var(--black);">
-  <h2 style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:clamp(36px,5vw,56px);color:var(--black);margin-bottom:16px;">My CVs ★</h2>
-  <p style="font-family:'Be Vietnam Pro',sans-serif;font-size:17px;color:var(--black);margin-bottom:40px;max-width:500px;margin-left:auto;margin-right:auto;">Want to know more? Take a look at my experience.</p>
-  <div style="display:flex;gap:24px;justify-content:center;flex-wrap:wrap;">
-    <a href="blank-street-cv.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:16px 40px;background:var(--green);color:var(--white);font-family:'Bebas Neue',sans-serif;font-size:28px;text-transform:uppercase;border:3px solid var(--black);box-shadow:6px 6px 0px var(--black);text-decoration:none;transform:rotate(-1deg);transition:all 0.15s;">Blank Street CV <span class="material-symbols-outlined">open_in_new</span></a>
-    <a href="personal-cv.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:16px 40px;background:var(--pink);color:var(--black);font-family:'Bebas Neue',sans-serif;font-size:28px;text-transform:uppercase;border:3px solid var(--black);box-shadow:6px 6px 0px var(--black);text-decoration:none;transform:rotate(1deg);transition:all 0.15s;">Personal CV <span class="material-symbols-outlined">open_in_new</span></a>
-  </div>
-</section>
-
 <!-- SKILLS -->
 <section class="skills" id="skills">
   <div class="bg-dots"></div>
   <h2 class="section-title">WHAT I BRING ★</h2>
   <div class="skills-grid">
-    <div class="skill-card"><h5>Customer Insight</h5><p>I understand your audience because I speak to them every day. Real consumer data, not assumptions.</p></div>
-    <div class="skill-card"><h5>Communication</h5><p>Clear, persuasive, and adaptable — whether it's a customer, a team, or a campaign brief.</p></div>
-    <div class="skill-card"><h5>Adaptability</h5><p>Moved countries at 18. Thrived in high-pressure environments. I figure things out fast.</p></div>
-    <div class="skill-card"><h5>Brand Awareness</h5><p>I protect brand standards on the front line and notice when campaigns land — or miss.</p></div>
-    <div class="skill-card"><h5>Team Collaboration</h5><p>Dependable, positive, and built for fast-paced teams. I bring energy and I follow through.</p></div>
-    <div class="skill-card"><h5>Resourceful</h5><p>I find solutions fast, make the most of what's available, and figure things out without being told twice.</p></div>
+    <div class="skill-card"><h5>Customer Experience</h5><p>Naturally outgoing and confident creating warm, memorable interactions that make people feel genuinely welcomed.</p></div>
+    <div class="skill-card"><h5>Strong Communicator</h5><p>Friendly, adaptable communicator who connects easily with different personalities and understands brand tone.</p></div>
+    <div class="skill-card"><h5>High-Energy Team Player</h5><p>Thrive in fast-paced environments and love bringing positive energy to a team, especially during events and busy shifts.</p></div>
+    <div class="skill-card"><h5>Brand-Aware Mindset</h5><p>Strong understanding of how customer interaction, visuals, and service all shape the perception of a modern lifestyle brand.</p></div>
+    <div class="skill-card"><h5>Detail-Oriented Under Pressure</h5><p>Able to juggle multiple priorities while keeping presentation, accuracy, and customer experience at a consistently high standard.</p></div>
+    <div class="skill-card"><h5>Adaptable &amp; Resourceful</h5><p>Pick up new systems and expectations quickly, with a proactive attitude and willingness to step in wherever needed.</p></div>
   </div>
 </section>
 
