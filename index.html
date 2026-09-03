@@ -241,7 +241,7 @@ header .hire-btn:hover{transform:rotate(-1deg) scale(1.05);}
   border-bottom:3px solid var(--pink);display:inline-block;
 }
 .role .role-dates{
-  font-family:'Permanent Marker',cursive;color:var(--green);
+  font-family:'Permanent Marker',cursive;color:var(--black);
   font-size:15px;margin-bottom:10px;
 }
 .role .card-body{font-size:14px;line-height:1.7;color:var(--black);}
@@ -332,8 +332,9 @@ header .hire-btn:hover{transform:rotate(-1deg) scale(1.05);}
   font-family:'Permanent Marker',cursive;font-size:clamp(18px,3vw,28px);
   color:var(--black);margin-bottom:48px;transform:rotate(-1deg);
 }
-.cv-options{display:flex;gap:32px;justify-content:center;align-items:flex-start;flex-wrap:wrap;}
-.cv-option{width:340px;}
+.cv-options{display:flex;gap:32px;justify-content:center;align-items:stretch;flex-wrap:wrap;}
+.cv-option{width:340px;display:flex;flex-direction:column;}
+.cv-option .cv-btn,.cv-option .cv-btn-alt{flex:1;}
 .cv-btn,.cv-btn-alt{
   display:flex;align-items:center;justify-content:center;gap:12px;
   padding:24px 32px;min-height:110px;width:100%;text-align:center;
@@ -466,14 +467,24 @@ footer .footer-name{font-family:'Permanent Marker',cursive;font-size:22px;color:
 footer .footer-links{display:flex;gap:20px;}
 footer .footer-links a{
   font-family:'Syne',sans-serif;font-weight:800;font-size:12px;
-  color:var(--green);text-decoration:none;text-transform:uppercase;
-  letter-spacing:0.05em;transition:color 0.15s;padding:4px 12px;
-  border:2px solid var(--green);border-radius:50px;
+  color:var(--pink);text-decoration:none;text-transform:uppercase;
+  letter-spacing:0.05em;transition:all 0.15s;padding:8px 16px;
+  border:2px solid var(--pink);border-radius:50px;
 }
-footer .footer-links a:hover{background:var(--green);color:var(--white);}
-footer .footer-copy{font-size:11px;color:rgba(255,255,255,0.4);font-family:'Syne',sans-serif;text-transform:uppercase;letter-spacing:0.05em;}
+footer .footer-links a:hover{background:var(--pink);color:var(--black);}
+footer .footer-copy{font-size:11px;color:rgba(255,255,255,0.75);font-family:'Syne',sans-serif;text-transform:uppercase;letter-spacing:0.05em;}
 
 /* RESPONSIVE */
+@media(max-width:1080px){
+  header{padding:12px 20px;gap:12px;}
+  header .logo{font-size:22px;}
+  header nav{gap:10px;}
+  header nav a{font-size:17px;padding:2px 5px;}
+  header .hire-btn{font-size:15px;padding:6px 14px;}
+}
+@media(max-width:900px){
+  header nav{display:none;}
+}
 @media(max-width:768px){
   header{padding:10px 16px;}
   header nav{display:none;}
